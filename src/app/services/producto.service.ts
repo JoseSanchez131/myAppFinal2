@@ -41,6 +41,11 @@ export class ProductoService{
         let ref = this._db.database.ref("productos");
         return ref;
     }
+
+    getProducto(nombre){
+        let ref = this._db.database.ref("productos/" +nombre);
+        return ref;
+    }
     
 
     /*getProducto(nombre:string) : IProducto{
@@ -77,4 +82,15 @@ export class ProductoService{
     })
     });
    } 
+
+   editar(){
+    let ref = this._db.database.ref("productos");
+    ref.child("Lz91Kp5I0Q04qtsQdeR").set({nombre: 'IPAD2',
+    descripcion: 'APPLE',
+    categoria:'tecnologia',
+    estado:'Perfecto estado',
+    usuario: 'n9NDsnNsUMf9yp0RI1GIFRAoP8t2',
+    precio: 400});
+
+   }
 }

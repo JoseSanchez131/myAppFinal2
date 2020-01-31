@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-button slot="start">
-            <ion-back-button defaultHref="/principal"></ion-back-button>
+            <ion-back-button defaultHref="/principal/:username'"></ion-back-button>
           </ion-button>
       <ion-title>Almacen Florida</ion-title>
     </ion-toolbar>
@@ -63,7 +63,7 @@
       </ion-list>
       <ion-button (click)="buscar()">Buscar</ion-button>
       <ion-button (click)="eliminar()">Eliminar</ion-button>
-      <ion-button expand="block" routerLink="/principal" routerDirection="fordward">
+      <ion-button expand="block" routerLink="/principal/:username'" routerDirection="fordward">
         Volver principal
    </ion-button>
     </ion-card-content>

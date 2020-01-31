@@ -6,11 +6,22 @@
       <ion-title>Mis productos</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content>
+  <ion-item>
+    <ion-label>Filtrar por categoria:</ion-label>
+    <ion-select [(ngModel)]="categoria" #V (ionChange)="filter(V.value)">  
+      <ion-select-option value="tecnologia">Tecnologia</ion-select-option>
+      <ion-select-option value="hogar">Hogar</ion-select-option>
+      <ion-select-option value="inmobiliaria">Inmobiliaria</ion-select-option>
+      <ion-select-option value="motor">Motor</ion-select-option>
+    </ion-select>
+  </ion-item>
 
   <ion-card>   
     <ion-card-content>   
       <ion-list>
         <ion-item *ngFor="let item of productos">
+        <ion-item *ngIf="item.categoria == categoria">
           <ion-grid>
             <ion-row>
               <ion-col>Nombre: {{item.nombre}}</ion-col>
@@ -52,7 +63,11 @@
               <ion-col>Precio: {{item.precio}} €</ion-col>
             </ion-row>
           </ion-grid>
+          <ion-button (click)="remove(item.nombre)">Eliminar</ion-button>
+          <ion-button (click)="editar()">Editar</ion-button>
+        </ion-item>
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
+</ion-content>
