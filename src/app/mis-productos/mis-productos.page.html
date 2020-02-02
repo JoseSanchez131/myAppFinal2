@@ -64,7 +64,9 @@
             </ion-row>
           </ion-grid>
           <ion-button (click)="remove(item.nombre)">Eliminar</ion-button>
-          <ion-button (click)="editar()">Editar</ion-button>
+          <ion-button expand="block" [routerLink]="['/modificar/',item.nombre]" routerDirection="forward">
+            Editar
+       </ion-button>
         </ion-item>
         </ion-item>
       </ion-list>

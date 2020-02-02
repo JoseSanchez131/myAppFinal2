@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'modificar/:id',
+    loadChildren: () => import('./modificar/modificar.module').then( m => m.ModificarPageModule)
+  },
   
 ];
 
