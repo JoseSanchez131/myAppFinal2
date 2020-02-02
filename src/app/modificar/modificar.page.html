@@ -1,9 +1,71 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>modificar</ion-title>
+      <ion-button slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-button>
+    <ion-title>Modificar producto</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Editar Producto</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Input with value -->
+      <ion-input placeholder="nombre:" [(ngModel)]="nombre" [value]="nombre"></ion-input>
+
+      <!-- Input with placeholder -->
+      <ion-input placeholder="descripcion:" [(ngModel)]="descripcion" [value]="descripcion"></ion-input>
+
+      <ion-list>
+        <ion-item>
+          <ion-label>Categoria:</ion-label>
+          <ion-select [(ngModel)]="categoria" [value]="categoria">  
+            <ion-select-option value="tecnologia">Tecnologia</ion-select-option>
+            <ion-select-option value="hogar">Hogar</ion-select-option>
+            <ion-select-option value="inmobiliaria">Inmobiliaria</ion-select-option>
+            <ion-select-option value="motor">Motor</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+        <div *ngIf="categoria == 'tecnologia'">
+          <!--IMPUS DE ESTA CATEGORIA-->
+          <ion-item>
+            <ion-label>Estado producto:</ion-label>
+            <ion-select placeholder="Estado:" [(ngModel)]="estado" [value]="estado">
+              <ion-select-option value="Perfecto estado">Perfecto estado</ion-select-option>
+              <ion-select-option value="Usado">Usado</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <div *ngIf="categoria == 'hogar'">
+            <!--IMPUS DE ESTA CATEGORIA-->
+        </div>
+        <div *ngIf="categoria == 'inmobiliaria'">
+          <!--IMPUS DE ESTA CATEGORIA-->
+          <ion-input placeholder="metros:" [(ngModel)]="metros" [value]="metros"></ion-input>
+          <ion-input placeholder="baños:" [(ngModel)]="banios" [value]="banios"></ion-input>
+          <ion-input placeholder="habitaciones:" [(ngModel)]="habitaciones"[value]="habitaciones"></ion-input>
+          <ion-input placeholder="localidad:" [(ngModel)]="localidad" [value]="localidad"></ion-input>
+        </div>
+        <div *ngIf="categoria == 'motor'">
+          <!--IMPUS DE ESTA CATEGORIA-->
+          <ion-item>
+              <ion-select placeholder="Tipo Vehiculo" [(ngModel)]="vehiculo" [value]="vehiculo">
+              <ion-select-option value="Coche">Coche</ion-select-option>
+              <ion-select-option value="Moto">Moto</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-input placeholder="km:" [(ngModel)]="km" [value]="km"></ion-input>
+          <ion-input placeholder="Año:" [(ngModel)]="anio" [value]="anio"></ion-input>
+        </div>
+      </ion-list>
+      <ion-input placeholder="precio:" [(ngModel)]="precio" [value]="precio"></ion-input>
+      <ion-button (click)="modificar(nombre)">Modificar</ion-button>
+     
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>
